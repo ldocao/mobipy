@@ -15,6 +15,7 @@ class Caracteristics():
         self.rooms = rooms
         self.category = self.category()
 
+        self.check_surface()
 
     def category(self):
         """Returns the category of the apartment (eg: 2 pièces)"""
@@ -38,7 +39,15 @@ class Caracteristics():
 
 
 
+    def check_surface(self):
+        if sum_of_room_surfaces > self.surface:
+            raise ValueError("surface must be greater or equal the sum of room surfaces")
 
+
+
+    def sum_of_room_surface(self):
+        room_surfaces = [room.surface for room in self.rooms]
+        return sum(room_surfaces)
 
 
 
@@ -68,9 +77,30 @@ class Surface():
     def _compare_ground_and_carrez(self):
         if self.ground < self.carrez:
             raise ValueError("carrez cannot be greater than ground")
+
+
+    def __add__(self, other):
+        self.check_same_unit()
         
+        sum_ground = self.ground + other.ground
+        sum_carrez = self.carrez + other.carrez
         
+        return Surface(sum_ground, carrez=sum_carrez, unit=self.unit)
+
+
+    def check_same_unit(self):
+        if not self.have_same_unit(self, other):
+            raise TypeError("cannot sum two surfaces with different units")
+    
+    def have_same_unit(self, other):
+        return self.unit == other.unit
         
+    def __radd__(self):
+        return __add__(self)
+
+
+
+    
 class Equipment():
     def __init__(self):
         pass
