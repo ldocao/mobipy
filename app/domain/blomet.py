@@ -11,7 +11,7 @@ from domain.interior.room import MainRoom, Kitchen, BathRoom
 
 ## define metadata
 blomet = Apartment()
-address = Address(56, "rue Blomet", "75015", "Paris", "France")
+address = Address("56 rue Blomet", "75015", "Paris", "France")
 location = LocationInBuilding(Floor(3), Door("gauche"))
 position = Position(address, location)
 blomet.metadata = Metadata(position)
@@ -20,7 +20,7 @@ blomet.metadata = Metadata(position)
 
 ## define interior
 rooms = [MainRoom(Surface(13)), Kitchen(Surface(3)), BathRoom(Surface(2))]
-caracteristics = Caracteristics(Surface(35.23), rooms)
+caracteristics = Caracteristics(Surface(35.23, carrez=2), rooms)
 equipment = Equipment()
 blomet.interior = Interior(caracteristics, equipment)
 

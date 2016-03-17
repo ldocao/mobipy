@@ -10,16 +10,6 @@ class Interior():
 
 
 class Caracteristics():
-    """
-
-    Parameters
-    ----------
-    surface: Surface
-        Surface of the interior
-    
-    rooms: list
-        List of all rooms
-    """
     def __init__(self, surface, rooms):
         self.surface = surface
         self.rooms = rooms

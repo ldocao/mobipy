@@ -31,27 +31,11 @@ class Apartment(Accomodation):
 
 
 class Address():
-    def __init__(self, number, road, postal_code, city, country):
-        self.number = number
-        self.road = road
+    def __init__(self, street, postal_code, city, country):
+        self.street = street
         self.postal_code = postal_code
         self.city = city
         self.country = country
-
-
-
-    @property
-    def number(self):
-        return self.__number
-    
-    @number.setter
-    def number(self, number):
-        if number <= 0:
-            raise ValueError("Number should be > 0")
-        else:
-            self.__number = number
-
-
 
     
 
