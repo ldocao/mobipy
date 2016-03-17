@@ -7,23 +7,15 @@ class Accomodation(metaclass = ABCMeta):
     counter = 0
     
     def __init__(self):
-        self._id = self.create_new_id()
-        self.metadata = self.metadata()
-        self.interior = self.interior()
+        self._id = self.create_unique_id()
+        self.metadata = None
+        self.interior = None
 
+        
     @classmethod
-    def create_new_id(cls):
+    def create_unique_id(cls):
         cls.counter += 1
         return cls.counter
-
-    
-    def metadata(self, metadata):
-        pass ## children must implement this polymorphic method
-
-
-    def interior(self, interior):
-        pass ## children must implement this polymorphic method
-
 
     
     def __repr__(self):
@@ -33,13 +25,7 @@ class Accomodation(metaclass = ABCMeta):
     
 
 class Apartment(Accomodation):
-    
-    def metadata(self):
-        pass
-
-    def interior(self):
-        pass
-
+    pass
 
     
 # class House(Accomodation):
