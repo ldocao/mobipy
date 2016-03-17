@@ -27,6 +27,38 @@ class Accomodation(metaclass = ABCMeta):
 class Apartment(Accomodation):
     pass
 
+
+
+
+class Address():
+    def __init__(self, number, road, postal_code, city, country):
+        self.number = number
+        self.road = road
+        self.postal_code = postal_code
+        self.city = city
+        self.country = country
+
+
+
+    @property
+    def number(self):
+        return self.__number
+    
+    @number.setter
+    def number(self, number):
+        if number <= 0:
+            raise ValueError("Number should be > 0")
+        else:
+            self.__number = number
+
+
+class Surface():
+    def __init__(self, value, unit="square meter"):
+        self.value = value
+        self.unit = unit
+
+    
+
     
 # class House(Accomodation):
 #     raise NotImplementedError
