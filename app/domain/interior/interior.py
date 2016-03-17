@@ -21,7 +21,8 @@ class Caracteristics():
 
         label = {0: "impossible",
                  1: "studio",
-                 2: "2 pièce(s)"}
+                 2: "2 pièce(s)",
+                 3: "3 pièce(s)"}
         
         return label[self.number_of_habitable_room()]
 
