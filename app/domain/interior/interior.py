@@ -56,10 +56,29 @@ class Caracteristics():
 
     
 class Surface():
-    def __init__(self, value, unit="square meter"):
-        self.value = value
+    def __init__(self, ground, carrez=None, unit="square meter"):
+        self.ground = ground
+        self.carrez = carrez
         self.unit = unit
 
+        self._check_value_consistency()
+
+
+    def _check_value_consistency(self):
+        self._auto_fill_carrez_if_empty()
+        self._compare_ground_and_carrez()
+
+
+    def _auto_fill_carrez_if_empty(self):
+        if self.carrez is None:
+            self.carrez = self.ground
+
+    
+    def _compare_ground_and_carrez(self):
+        if self.ground < self.carrez:
+            raise ValueError("carrez cannot be greater than ground")
+        
+        
         
 class Equipment():
     def __init__(self):
