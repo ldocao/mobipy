@@ -3,9 +3,8 @@
 
 
 class Metadata():
-    def __init__(self, position, field):
+    def __init__(self, position):
         self.position = position
-        self.field = field
 
 
 
