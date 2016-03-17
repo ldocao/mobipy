@@ -52,10 +52,6 @@ class Address():
             self.__number = number
 
 
-class Surface():
-    def __init__(self, value, unit="square meter"):
-        self.value = value
-        self.unit = unit
 
     
 
