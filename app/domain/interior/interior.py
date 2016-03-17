@@ -29,13 +29,11 @@ class Caracteristics():
     def category(self):
         """Returns the category of the apartment (eg: 2 pièces)"""
 
-        n_habitable_room = self.number_of_habitable_room()
-
         label = {0: "impossible",
                  1: "studio",
                  2: "2 pièce(s)"}
         
-        return label[n_habitable_room]
+        return label[self.number_of_habitable_room()]
 
 
     def number_of_habitable_room(self):
