@@ -8,13 +8,13 @@ from domain.interior.room import Kitchen, MainRoom, Lavatory, LivingRoom, BedRoo
 
 @pytest.fixture
 def studio():
-    studio = Caracteristics(Surface(20),
+    studio = Caracteristics(Surface(30),
                             [Kitchen(Surface(10)), MainRoom(Surface(10))])
     return studio
 
 @pytest.fixture
 def room3():
-    room3 =  Caracteristics(Surface(20),
+    room3 =  Caracteristics(Surface(100),
                             [Kitchen(Surface(10)), MainRoom(Surface(10)), Lavatory(Surface(2)), LivingRoom(Surface(23)), BedRoom(Surface(23))])
     return room3
 
