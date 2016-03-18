@@ -26,6 +26,7 @@ class GeometricalSurface():
         return __add__(self)
 
     def __eq__(self, other):
+        ## TODO: we could handle automatically the change in units
         value_are_equal = (self.value == other.value)
         unit_are_equal = (self.unit == other.unit)
         return value_are_equal & unit_are_equal
