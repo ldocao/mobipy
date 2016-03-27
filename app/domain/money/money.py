@@ -56,20 +56,7 @@ class Recurrence(object):
 
 
 
-
-class TimeRange(object):
-    """
-    Parameters
-    ----------
-    start : DateTime
-
-    end: DateTime
-    """
-    def __init__(self, start, end):
-        self.start = start
-        self.end = end
-
-
+        
 class TemporaryReccurence(object):
     """Recurrence limited in time"""
     def __init__(self, recurrence, time_range):
