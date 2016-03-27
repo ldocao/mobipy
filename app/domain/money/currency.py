@@ -9,6 +9,19 @@ class Currency(object):
         self.symbol = symbol
         self.unit_value_in_euro = unit_value_in_euro
 
+
+    def __eq__(self, other):
+        if self.symbol == other.symbol:
+            self.check_exchange_rate(other)
+            return True
+        else:
+            return False
+
+
+    def check_exchange_rate(self, other):
+        return self.unit_value_in_euro == other.unit_value_in_euro
+
+    
     def __repr__(self):
         return self.symbol
 
