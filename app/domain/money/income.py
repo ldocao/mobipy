@@ -1,18 +1,12 @@
 # -*- coding: utf-8 -*-
-
+# PURPOSE: income is a kind of transaction
 
 
 class Income(object):
     pass
 
 
-class UniqueIncome(object):
 
 
-class RecurrentIncome(object):
-
-
-
-    
-class IncomeFactory(object):
+class Unique(Income):
     
