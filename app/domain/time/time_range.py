@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import datetime
 
 class TimeRange(object):
     """
@@ -19,3 +20,9 @@ class TimeRange(object):
             raise ValueError("Start cannot be greater than end.")
 
 
+
+    def elapsed_time(self):
+        return datetime.datetime.now() - self.start
+
+    def remaining_time(self):
+        return self.end - datetime.datetime.now()
