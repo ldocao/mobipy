@@ -19,7 +19,12 @@ class Currency(object):
 
 
     def check_exchange_rate(self, other):
+        if not self.is_same_exchange_rate(other):
+            raise ValueError("Same currency must have the same exchange rate.")
+        
+    def is_same_exchange_rate(self, other):
         return self.unit_value_in_euro == other.unit_value_in_euro
+            
 
     
     def __repr__(self):
