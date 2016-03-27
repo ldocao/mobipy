@@ -6,26 +6,43 @@ from domain.money import Money
 
 
 
-class Transaction(Money):
+class Transaction(object):
     """Exchange of money between two entities"""
+    def __init__(self, money, issuer, receiver):
+        self.money = money
+        self.issuer = issuer
+        self.receiver = receiver
+
+
+
+
+
+class TransactionFactory(object):
+    """Abstract Factory for Transaction"""
+    
+    ## List all types of transaction
+    _type = {"unique" : UniqueTransaction,
+             "recurrence" : RecurrentTransaction}
+
+
+    @staticmethod
+    def get_transaction(name, *args, **kwargs):
+        transaction_class = TransactionFactory._type.get(name.lower(),
+                                                         default=None)
+        return transaction_class(*args, **kwargs)
+        
+
+    
+
+class UniqueTransaction(object):
+    """Unique (in time) Transaction"""
     pass
 
 
 
+class RecurrentTransaction(object):
+    """Transaction occuring regularly in time"""
 
-
-class Recurrence(object):
-    """Transaction occuring regularly in time
-
-    Parameters
-    ----------
-    transaction : Transaction
-
-    frequency: Frequency
-    """
-    def __init__(self, transaction, frequency):
-        self.transaction = transaction
-        self.frequency = frequency
 
 
 
