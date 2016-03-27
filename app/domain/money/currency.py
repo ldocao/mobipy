@@ -4,6 +4,19 @@
 __all__ = ["EURO", "US_DOLLAR"]
 
 
+
+
+
+EURO = Currency("€", 1)
+US_DOLLAR = Currency("USD", 0.9)
+
+
+
+
+
+
+
+
 class Currency(object):
     def __init__(self, symbol, unit_value_in_euro):
         self.symbol = symbol
@@ -29,10 +42,6 @@ class Currency(object):
     
     def __repr__(self):
         return self.symbol
-
-
-EURO = Currency("€", 1)
-US_DOLLAR = Currency("USD", 0.9)
 
 
 
