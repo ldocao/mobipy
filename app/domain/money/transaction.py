@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from domain.money import Money
+
+
+
 
 
 class Transaction(Money):
@@ -32,16 +36,5 @@ class TemporaryReccurence(object):
         self.recurrence = recurrence
         self.time_range = time_range
 
-        
-
-
-class Income(object):
-    """
-
-    Parameters
-    ----------
     
-    """
-    def __init__(self, money, frequency):
-        super().__init__(money.value, money.currency)
     
