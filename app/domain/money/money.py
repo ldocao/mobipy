@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 
-class Money():
+class Money(object):
+    """
+    Parameters
+    ----------
+    value: float
+
+    currency: Currency
+    """
     def __init__(self, value, currency):
         self.value = value
         self.currency = currency
@@ -14,7 +21,53 @@ class Money():
         else:
             sum_value_in_euro = self.value_in_euro() + other.value_in_euro()
             return Money(sum_value_in_euro, EURO)
-        
+
 
     def value_in_euro(self):
         return self.value * self.currency.unit_value_in_euro
+
+
+    def __repr__(self):
+        return str(self.value) + " " + self.currency
+
+
+
+class Transaction(Money):
+    pass
+
+
+class Recurrence(object):
+    """Transaction occuring regularly in time
+
+    Parameters
+    ----------
+    transaction : Transaction
+
+    frequency: Frequency
+    """
+    def __init__(self, transaction, frequency):
+        self.transaction = transaction
+        self.frequency = frequency
+
+
+
+
+class TemporaryReccurence(object):
+    """Recurrence limited in time"""
+    def __init__(self, recurrence, start, end):
+        self.recurrence = recurrence
+        self.start = start
+        self.end = end
+        
+
+
+class Income(object):
+    """
+
+    Parameters
+    ----------
+    
+    """
+    def __init__(self, money, frequency):
+        super().__init__(money.value, money.currency)
+    
