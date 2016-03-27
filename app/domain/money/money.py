@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 class Money(object):
-    """
+    """Value with associated currency
+
     Parameters
     ----------
     value: float
@@ -33,7 +34,11 @@ class Money(object):
 
 
 class Transaction(Money):
+    """Exchange of money between two entities"""
     pass
+
+
+
 
 
 class Recurrence(object):
