@@ -3,9 +3,10 @@
 import ipdb
 
 
+class Transaction(object):
+    
 
-
-class UniqueTransaction(object):
+class UniqueTransaction(Transaction):
     """Unique (in time) Transaction"""
     def __init__(self, transaction, date):
         self.transaction = transaction
@@ -13,11 +14,12 @@ class UniqueTransaction(object):
 
 
 
-class RecurrentTransaction(object):
+class RecurrentTransaction(Transaction):
     """Recurrence limited in time"""
-    def __init__(self, recurrence, time_range):
+    def __init__(self, transaction, recurrence):
+        self.transaction = transaction
         self.recurrence = recurrence
-        self.time_range = time_range
+
 
 
 
