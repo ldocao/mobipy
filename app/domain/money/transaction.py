@@ -4,20 +4,24 @@ import ipdb
 
 
 class Transaction(object):
-    
+    """Abstract class"""
+    def __init__(self, money, issuer, receiver):
+        self.money = money
+        self.issuer = issuer
+        self.receiver = receiver
 
+        
 class UniqueTransaction(Transaction):
     """Unique (in time) Transaction"""
-    def __init__(self, transaction, date):
-        self.transaction = transaction
+    def __init__(self, *args, date):
+        super().__init__(args)
         self.date = date
-
 
 
 class RecurrentTransaction(Transaction):
     """Recurrence limited in time"""
-    def __init__(self, transaction, recurrence):
-        self.transaction = transaction
+    def __init__(self, *args, recurrence):
+        super().__init__(args)
         self.recurrence = recurrence
 
 
