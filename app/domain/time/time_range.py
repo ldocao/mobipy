@@ -25,4 +25,12 @@ class TimeRange(object):
         return datetime.datetime.now() - self.start
 
     def remaining_time(self):
-        return self.end - datetime.datetime.now()
+        import datetime
+        
+        remaining_time = self.end - datetime.datetime.now()
+        
+        if remaining_time < 0:
+            return datetime.timedelta(0)
+        else:
+            return remaining_time
+
