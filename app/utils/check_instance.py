@@ -7,3 +7,12 @@ def is_positive_integer(x):
         return False
 
         
+def is_numeric(x):
+    if isinstance(x, bool):
+        return False
+    else:
+        try:
+            x+1
+            return True
+        except TypeError:
+            return False
