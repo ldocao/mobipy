@@ -37,19 +37,28 @@ class Caracteristics():
         return issubclass(room.__class__, HabitableRoom)
 
 
-
-
     def check_surface(self):
         if self.sum_of_room_surface() > self.surface:
             raise ValueError("surface must be greater or equal the sum of room surfaces")
 
 
-
     def sum_of_room_surface(self):
-        room_surfaces = [room.surface for room in self.rooms]
-        return sum(room_surfaces)
+        # TODO: allow for different unit surfaces between different rooms
+        
+        import utils.geometry as geometry
+        
+        if self.room_have_same_unit():
+            common_unit = self.rooms[0].surface.ground.unit
+            zero_surface = Surface(geometry.Surface(0, common_unit))
+            room_surfaces = [room.surface for room in self.rooms]
+            return sum(room_surfaces, zero_surface)
+        else:
+            raise NotImplementedError("Cannot sum surface with different units")
 
-
+    def room_have_same_unit(self):
+        room_units = [room.surface.ground.unit for room in self.rooms]
+        is_same_unit = len(set(room_units)) == 1
+        return is_same_unit
         
 
 
@@ -81,3 +90,15 @@ class Surface():
     def __add__(self, other):
         return Surface(self.ground + other.ground,
                        self.carrez + other.carrez)
+
+
+    def __eq__(self, other):
+        same_ground = self.ground == other.ground
+        same_carrez = self.carrez == other.carrez
+        return same_ground & same_carrez
+
+    def __gt__(self, other):
+        return self.ground > other.ground
+
+    def __lt__(self, other):
+        return self.ground < other.ground
