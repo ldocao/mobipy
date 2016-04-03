@@ -2,7 +2,7 @@
 
 
 
-class Expense(object):
+class Expense(Transaction):
     pass
 
 
