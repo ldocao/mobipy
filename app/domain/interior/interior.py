@@ -40,7 +40,7 @@ class Caracteristics():
 
 
     def check_surface(self):
-        if self.sum_of_room_surfaces() > self.surface:
+        if self.sum_of_room_surface() > self.surface:
             raise ValueError("surface must be greater or equal the sum of room surfaces")
 
 
@@ -50,16 +50,15 @@ class Caracteristics():
         return sum(room_surfaces)
 
 
-
+        
 
 
 
     
 class Surface():
-    def __init__(self, ground, carrez=None, unit="square meter"):
+    def __init__(self, ground, carrez=None):
         self.ground = ground
         self.carrez = carrez
-
 
         self._check_value_consistency()
 
@@ -79,11 +78,6 @@ class Surface():
             raise ValueError("carrez cannot be greater than ground")
 
 
-
-
-
-
-    
-class Equipment():
-    def __init__(self):
-        pass
+    def __add__(self, other):
+        return Surface(self.ground + other.ground,
+                       self.carrez + other.carrez)
