@@ -37,3 +37,26 @@ def test_add3(butter, coca_cola):
     assert mix_items.value == butter.value + coca_cola.value*coca_cola.currency.unit_value_in_euro
     assert mix_items.currency == EURO
     
+
+def test_add4(bread):
+    with pytest.raises(TypeError):
+        bread + 2
+
+def test_add5(bread):
+    with pytest.raises(TypeError):
+        2 + bread
+
+
+def test_eq1(bread, butter):
+    is_equal = bread == butter
+    assert is_equal == False
+
+def test_eq2(bread):
+    with pytest.raises(TypeError):
+        bread == 2
+
+def test_mul1(bread):
+    assert bread*2 == Money(bread.value*2, EURO)
+
+def test_mul2(bread):
+    assert 2*bread == Money(bread.value*2, EURO)
