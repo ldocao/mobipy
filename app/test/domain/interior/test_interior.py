@@ -1,21 +1,29 @@
 # -*- coding: utf-8 -*-
 
 import pytest
+import utils.geometry as geometry
 from domain.interior.interior import Interior, Caracteristics, Surface
 from domain.accomodation import Apartment
 from domain.interior.room import Kitchen, MainRoom, Lavatory, LivingRoom, BedRoom
 
 
+m2 = "square meter"
+
 @pytest.fixture
 def studio():
-    studio = Caracteristics(Surface(30),
-                            [Kitchen(Surface(10)), MainRoom(Surface(10))])
+    studio = Caracteristics(Surface(geometry.Surface(30, m2)),
+                            [Kitchen(Surface(geometry.Surface(10, m2))),
+                             MainRoom(Surface(geometry.Surface(10, m2)))])
     return studio
 
 @pytest.fixture
 def room3():
-    room3 =  Caracteristics(Surface(100),
-                            [Kitchen(Surface(10)), MainRoom(Surface(10)), Lavatory(Surface(2)), LivingRoom(Surface(23)), BedRoom(Surface(23))])
+    room3 =  Caracteristics(Surface(geometry.Surface(100, m2)),
+                            [Kitchen(Surface(geometry.Surface(10, m2))),
+                             MainRoom(Surface(geometry.Surface(10, m2))),
+                             Lavatory(Surface(geometry.Surface(2, m2))),
+                             LivingRoom(Surface(geometry.Surface(23, m2))),
+                             BedRoom(Surface(geometry.Surface(23, m2)))])
     return room3
 
 def test_number_of_habitable_room(studio):
