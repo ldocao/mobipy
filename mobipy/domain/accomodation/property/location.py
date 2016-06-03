@@ -1,14 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
-
-
-class Metadata():
-    def __init__(self, position):
-        self.position = position
-        self.accountancy = None
-
-
 
 class Position():
     def __init__(self, address, location_in_building):
