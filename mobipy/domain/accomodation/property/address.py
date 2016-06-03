@@ -2,12 +2,13 @@
 
 __all__ = ["Address", "LocationInBuilding", "Floor", "Door"]
 
+import numpy as np
 
 
 class Address(object):
     def __init__(self,
                  street, zipcode, city, country,
-                 location_in_building=None):
+                 location_in_building=np.nan):
         """ 
         Parameters
         ----------
