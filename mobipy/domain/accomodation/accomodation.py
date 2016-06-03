@@ -3,7 +3,7 @@
 from abc import ABCMeta
 
 
-class Accomodation(metaclass = ABCMeta):
+class Accomodation(metaclass=ABCMeta):
     counter = 0
     
     def __init__(self):
@@ -24,11 +24,6 @@ class Accomodation(metaclass = ABCMeta):
 
     
 
-class Apartment(Accomodation):
-    pass
-
-
-
 
 class Address():
     def __init__(self, street, postal_code, city, country):
@@ -36,20 +31,3 @@ class Address():
         self.postal_code = postal_code
         self.city = city
         self.country = country
-
-    
-
-    
-# class House(Accomodation):
-#     raise NotImplementedError
-
-
-# class SharedAccomodation(Accomodation):
-#     """Room inside a shared house"""
-#     raise NotImplementedError
-
-    
-# class SharedRoom(Accomodation):
-#     """Room in which several persons live"""
-#     raise NotImplementedError
-            
