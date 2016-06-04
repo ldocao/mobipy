@@ -10,14 +10,16 @@ from mobipy.domain.accomodation.property.property import *
 #from mobipy.domain.accomodation.rentable.rentable import *
 
 
-Base.metadata.drop_all(engine, checkfirst=True)
-Base.metadata.create_all(engine, checkfirst=True)
+with engine.begin() as connexion:
+    connexion.execute("DROP DATABASE mobipy")
+    connexion.execute("CREATE DATABASE mobipy")
+    connexion.execute("USE mobipy")
+    
 
-
-
+    
 ## FILL FROM SOURCE
 Address().source_to_sql()
-#Property().source_to_sql(if_exists="replace", index=False)
+Property().source_to_sql()
 # Solo().source_to_sql(if_exists="replace", index=False)
 # Shared().source_to_sql(if_exists="replace", index=False)
 
