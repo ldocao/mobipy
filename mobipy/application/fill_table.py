@@ -9,6 +9,7 @@ from mobipy.infrastructure.database.orm import Base
 from mobipy.domain.accomodation.property.property import *
 from mobipy.domain.accomodation.rentable.rentable import *
 from mobipy.domain.accountancy.lodger import *
+from mobipy.domain.accountancy.spending import *
 
 
 with engine.begin() as connexion:
@@ -24,3 +25,8 @@ Address().source_to_sql()
 Property().source_to_sql()
 LodgerIdentity().source_to_sql()
 LodgerContract().source_to_sql()
+
+FixedSpending().source_to_sql()
+RecurrencyType().source_to_sql()
+RecurrentSpending().source_to_sql()
+
