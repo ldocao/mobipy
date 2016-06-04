@@ -17,7 +17,9 @@ class LodgerIdentity(Base):
     _FILE = LocalFile("mobipy/domain/accountancy/lodger.xlsx")
     SOURCE = pd.read_excel(_FILE.path, sheetname="identity")
     
-    _id = Column(Integer, primary_key=True, unique=True, nullable=False)
+    _id = Column(Integer,
+                 primary_key=True, unique=True, nullable=False,
+                 autoincrement=True)
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
     mobile_phone = Column(String(20))
@@ -29,9 +31,11 @@ class LodgerContract(Base):
     _FILE = LocalFile("mobipy/domain/accountancy/lodger.xlsx")
     SOURCE = pd.read_excel(_FILE.path, sheetname="contract")
 
-    _id = Column(Integer, primary_key=True, unique=True, nullable=False)
+    _id = Column(Integer,
+                 primary_key=True, unique=True, nullable=False,
+                 autoincrement=True)
     rentable = Column(ForeignKey("rentable.name"), nullable=False)
-    lodger = Column(ForeignKey("lodger.identity._id"), nullable=False)
+    lodger = Column(ForeignKey("lodgeridentity._id"), nullable=False)
     entry_date = Column(Date, nullable=False)
     exit_date = Column(Date)
     rent = Column(Float, nullable=False)

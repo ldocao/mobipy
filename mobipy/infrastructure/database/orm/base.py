@@ -21,11 +21,11 @@ class Base(object):
 
     UNKNOWN = "NULL"
 
-    def source_to_sql(self):
+    def source_to_sql(self, **kwargs):
         df = self.SOURCE
         try:
             df.to_sql(self.__table__.fullname, engine,
-                      if_exists="replace", index=False)
+                      if_exists="replace", index=False, **kwargs)
         except:
             raise ValueError("You cannot use if_exists='replace', when using to_sql because of ForeignKey constraint. Instead, load the Table from pandas.DataFrame only once, or use if_exists='append'.")
             
